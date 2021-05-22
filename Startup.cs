@@ -30,10 +30,12 @@ namespace Transactions
             services.AddGraphQLServer()
                     .AddQueryType<Query>()
                     .AddMutationType<Mutations>()
+                    .AddSubscriptionType<Subscriptions>()
                     .AddType<TransactionType>()
                     .AddType<TransactionHistoriesType>()
                     .AddFiltering()
                     .AddSorting()
+                    .AddInMemorySubscriptions()
                     .AddProjections();
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -51,7 +53,8 @@ namespace Transactions
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transactions v1"));
             }
-            
+
+            app.UseWebSockets();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {

@@ -16,6 +16,7 @@
       <e p="GraphQL" t="Include">
         <e p="Mutations.cs" t="Include" />
         <e p="Query.cs" t="Include" />
+        <e p="Subscriptions.cs" t="Include" />
         <e p="TransactionHistories" t="Include">
           <e p="TransactionHistoriesType.cs" t="Include" />
         </e>
